@@ -1,0 +1,32 @@
+.eventItem {
+  display: inline-flex;
+  height: 5rem;
+  margin-top: 10px;
+  width: 100%;
+
+  transition: all 0.1s;
+}
+
+.eventItem:hover {
+  transform: scale(1.02);
+}
+
+.eventImage {
+  object-fit: contain;
+  max-width: 30%;
+  height: 100%;
+
+  border-radius: 0 50% 0 30%;
+}
+
+.eventInfo {
+  margin-left: 5px;
+  width: 50%;
+  border-right: solid;
+}
+
+.eventExtras {
+  margin-left: 10px;
+  height: 100%;
+  float: right;
+}

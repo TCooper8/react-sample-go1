@@ -1,0 +1,28 @@
+.nav {
+  height: 2rem;
+}
+
+.title {
+  float: left;
+}
+
+.icon {
+  margin-left: 5px;
+  float: right;
+  cursor: pointer;
+}
+
+.activeIcon {
+  margin-left: 5px;
+  float: right;
+  color: var(--text-color);
+  cursor: default;
+}
+
+.icon:hover {
+  transform: scale(1.05);
+}
+
+.icon:active {
+  transform: scale(1.1);
+}

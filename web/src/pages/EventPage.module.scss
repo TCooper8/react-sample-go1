@@ -1,0 +1,28 @@
+.infoPanel {
+  padding: 10px;
+  display: inline-flex;
+}
+
+.mainImage {
+  margin: auto;
+  width: 50%;
+  max-height: 256px;
+  object-fit: cover;
+}
+
+.eventInfo {
+  margin: 10px;
+}
+
+.eventExtras {
+  margin: 10px;
+}
+
+.seatCard {
+  width: 64px;
+  height: 64px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
