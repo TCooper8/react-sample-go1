@@ -31,6 +31,7 @@ export type Event = {
   availableSeats?: Seat[];
 }
 
+// Pulling rows from file and converting them to something useable.
 const rows: Event[] = raw_rows.map(row => {
   return {
     ...row,
@@ -38,10 +39,12 @@ const rows: Event[] = raw_rows.map(row => {
   }
 });
 
+// Helper function for filtering text.
 const textFilter = (keyword: string, text: string) => {
   return text.toLowerCase().includes(keyword.trim().toLowerCase())
 }
 
+// Helper function for location filter.
 const locationFilters = (filter?: LocationFilter) => {
   return [
     filter?.city && (row => textFilter(filter.city, row.location.city)),
@@ -50,9 +53,14 @@ const locationFilters = (filter?: LocationFilter) => {
   ]
 }
 
+/**
+ * This function will list out the events in the system, applying the given filter.
+ * @param filter The filter to use for the events.
+ */
 const list = async (filter?: EventFilter): Promise<Event[]> => {
   console.log("Filtering events with %j", filter);
 
+  // Create a set of filter functions to reduce the set of events.
   const filters = [
     filter?.title && (row => textFilter(filter.title, row.title)),
 
@@ -66,9 +74,10 @@ const list = async (filter?: EventFilter): Promise<Event[]> => {
     ...locationFilters(filter?.location),
   ].filter(v => !!v);
 
+  // Apply the filters.
   return rows.filter(row => {
     return !filters.find(filter => !filter(row));
-  })
+  });
 }
 
 export default {
