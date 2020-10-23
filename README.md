@@ -1,6 +1,6 @@
 ## Setup
 
-To run the project simply run the following.
+To run the project simply run the following with Docker.
 ```bash
 docker-compose up -d --build web
 open http://localhost/
